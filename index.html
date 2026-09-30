@@ -167,6 +167,7 @@
     <span id="wordcount">0 words</span>
     <div class="btn-row">
       <button class="btn ghost" id="clear-btn">Clear</button>
+      <button class="btn ghost" id="copy-btn">Copy</button>
       <button class="btn primary" id="save-btn">Save</button>
     </div>
   </div>
@@ -623,6 +624,9 @@
     if (e.key === "Tab" && currentMatches.length > 0) {
       e.preventDefault();
       insertPhrase(currentMatches[0], currentFrag);
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      clearEditor();
     }
   });
   document.addEventListener("click", function (e) {
@@ -631,12 +635,17 @@
     }
   });
 
-  document.getElementById("save-btn").addEventListener("click", saveEntry);
-  document.getElementById("clear-btn").addEventListener("click", function () {
+  function clearEditor() {
     if (editor.value && !confirm("Clear the editor?")) return;
     editor.value = "";
     afterEdit();
     editor.focus();
+  }
+
+  document.getElementById("save-btn").addEventListener("click", saveEntry);
+  document.getElementById("clear-btn").addEventListener("click", clearEditor);
+  document.getElementById("copy-btn").addEventListener("click", function () {
+    copyText(editor.value, this);
   });
 
   document.getElementById("phrase-add").addEventListener("click", addPhrase);
