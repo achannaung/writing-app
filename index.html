@@ -205,6 +205,9 @@
   var phraseList = document.getElementById("phrase-list");
   var historyList = document.getElementById("history-list");
 
+  var currentMatches = [];
+  var currentFrag = "";
+
   function load(key, fallback) {
     try {
       var raw = localStorage.getItem(key);
@@ -242,12 +245,16 @@
     var frag = currentFragment();
     suggestBar.innerHTML = "";
     suggestBar.classList.remove("show");
+    currentMatches = [];
+    currentFrag = "";
     if (frag.length < 2 || phrases.length === 0) return;
     var lower = frag.toLowerCase();
     var matches = phrases.filter(function (p) {
       return p.toLowerCase().indexOf(lower) === 0 && p.length > frag.length;
     }).slice(0, 5);
     if (!matches.length) return;
+    currentMatches = matches;
+    currentFrag = frag;
 
     var label = document.createElement("span");
     label.className = "suggest-label";
@@ -447,6 +454,12 @@
   editor.addEventListener("input", afterEdit);
   editor.addEventListener("keyup", renderSuggestions);
   editor.addEventListener("click", renderSuggestions);
+  editor.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" && currentMatches.length > 0) {
+      e.preventDefault();
+      insertPhrase(currentMatches[0], currentFrag);
+    }
+  });
   document.addEventListener("click", function (e) {
     if (!suggestBar.contains(e.target) && e.target !== editor) {
       suggestBar.classList.remove("show");
