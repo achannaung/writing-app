@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing App</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --text: #1a1a1a;
+    --muted: #999;
+    --border: #e6e6e6;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 700px; margin: 0 auto; padding: 56px 24px 96px; }
+  header { margin-bottom: 36px; }
+  h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+
+  .editor-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  #editor {
+    width: 100%;
+    min-height: 260px;
+    border: none;
+    outline: none;
+    resize: vertical;
+    padding: 22px;
+    font-size: 17px;
+    line-height: 1.75;
+    font-family: inherit;
+    color: var(--text);
+    background: transparent;
+  }
+  #editor::placeholder { color: #c4c4c4; }
+
+  #suggest-bar {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 10px 14px;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: #fcfcfc;
+  }
+  #suggest-bar.show { display: flex; }
+  .suggest-label { font-size: 12px; color: var(--muted); align-self: center; margin-right: 2px; }
+  .suggest-chip {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text);
+    transition: border-color .15s, background .15s;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .suggest-chip:hover { border-color: var(--text); background: #f5f5f5; }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+  #wordcount { font-size: 13px; color: var(--muted); }
+  .btn-row { display: flex; gap: 8px; }
+  button {
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .btn {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 999px;
+    padding: 7px 18px;
+    color: var(--text);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--text); }
+  .btn.primary { background: var(--text); color: #fff; border-color: var(--text); }
+  .btn.primary:hover { background: #333; }
+  .btn.small { padding: 4px 12px; font-size: 13px; }
+  .btn.ghost { border-color: transparent; color: var(--muted); }
+  .btn.ghost:hover { color: var(--text); border-color: transparent; background: #f0f0f0; }
+
+  section { margin-top: 52px; }
+  section h2 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  section .hint { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+
+  .add-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .add-row input {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    background: #fff;
+  }
+  .add-row input:focus { border-color: var(--text); }
+
+  .phrase-list, .history-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .phrase-item, .history-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .phrase-text { flex: 1; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .history-main { flex: 1; min-width: 0; cursor: pointer; }
+  .history-preview {
+    font-size: 15px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .history-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .icon-btn {
+    border: none; background: none; color: var(--muted);
+    font-size: 16px; padding: 4px 6px; border-radius: 8px; line-height: 1;
+  }
+  .icon-btn:hover { color: var(--text); background: #f0f0f0; }
+  .empty { font-size: 14px; color: var(--muted); padding: 16px 0; }
+  .copied-flash { color: #1a7f37 !important; }
+
+  footer { margin-top: 64px; text-align: center; font-size: 12px; color: #ccc; }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 36px 16px 72px; }
+    #editor { min-height: 220px; padding: 18px; font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Writing App</h1>
+    <div class="sub">A quiet place to write.</div>
+  </header>
+
+  <div class="editor-card">
+    <textarea id="editor" placeholder="Start writing…"></textarea>
+    <div id="suggest-bar"></div>
+  </div>
+
+  <div class="toolbar">
+    <span id="wordcount">0 words</span>
+    <div class="btn-row">
+      <button class="btn ghost" id="clear-btn">Clear</button>
+      <button class="btn primary" id="save-btn">Save</button>
+    </div>
+  </div>
+
+  <section>
+    <h2>Auto text</h2>
+    <div class="hint">Save phrases you use often. Type the first few letters while writing, then click the suggestion to insert it.</div>
+    <div class="add-row">
+      <input id="phrase-input" type="text" placeholder="e.g. Kanbalu Township (Sagaing Region)" maxlength="200">
+      <button class="btn" id="phrase-add">Add</button>
+    </div>
+    <ul class="phrase-list" id="phrase-list"></ul>
+  </section>
+
+  <section>
+    <h2>Recent</h2>
+    <div class="hint">Your last three saved entries. Click an entry to open it.</div>
+    <ul class="history-list" id="history-list"></ul>
+  </section>
+
+  <footer>Writing App · saved in this browser</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var LS_DRAFT = "writingApp.draft.v1";
+  var LS_PHRASES = "writingApp.phrases.v1";
+  var LS_HISTORY = "writingApp.history.v1";
+
+  var editor = document.getElementById("editor");
+  var suggestBar = document.getElementById("suggest-bar");
+  var wordcount = document.getElementById("wordcount");
+  var phraseInput = document.getElementById("phrase-input");
+  var phraseList = document.getElementById("phrase-list");
+  var historyList = document.getElementById("history-list");
+
+  function load(key, fallback) {
+    try {
+      var raw = localStorage.getItem(key);
+      return raw ? JSON.parse(raw) : fallback;
+    } catch (e) { return fallback; }
+  }
+  function save(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+  }
+
+  var phrases = load(LS_PHRASES, null);
+  if (!Array.isArray(phrases)) {
+    phrases = ["Kanbalu Township (Sagaing Region)"];
+    save(LS_PHRASES, phrases);
+  }
+  var history = load(LS_HISTORY, []);
+  if (!Array.isArray(history)) history = [];
+
+  /* ---------- word count + draft autosave ---------- */
+  function updateCount() {
+    var text = editor.value.trim();
+    var n = text ? text.split(/\s+/).length : 0;
+    wordcount.textContent = n + (n === 1 ? " word" : " words");
+  }
+
+  /* ---------- auto-text suggestions ---------- */
+  function currentFragment() {
+    var pos = editor.selectionStart || 0;
+    var before = editor.value.slice(0, pos);
+    var m = before.match(/(\S+)$/);
+    return m ? m[1] : "";
+  }
+
+  function renderSuggestions() {
+    var frag = currentFragment();
+    suggestBar.innerHTML = "";
+    suggestBar.classList.remove("show");
+    if (frag.length < 2 || phrases.length === 0) return;
+    var lower = frag.toLowerCase();
+    var matches = phrases.filter(function (p) {
+      return p.toLowerCase().indexOf(lower) === 0 && p.length > frag.length;
+    }).slice(0, 5);
+    if (!matches.length) return;
+
+    var label = document.createElement("span");
+    label.className = "suggest-label";
+    label.textContent = "Auto text";
+    suggestBar.appendChild(label);
+
+    matches.forEach(function (phrase) {
+      var chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "suggest-chip";
+      chip.textContent = phrase;
+      chip.title = "Insert: " + phrase;
+      chip.addEventListener("mousedown", function (e) {
+        e.preventDefault();
+        insertPhrase(phrase, frag);
+      });
+      suggestBar.appendChild(chip);
+    });
+    suggestBar.classList.add("show");
+  }
+
+  function insertPhrase(phrase, frag) {
+    var pos = editor.selectionStart || 0;
+    var before = editor.value.slice(0, pos - frag.length);
+    var after = editor.value.slice(pos);
+    var insert = phrase + " ";
+    editor.value = before + insert + after;
+    var newPos = before.length + insert.length;
+    editor.selectionStart = editor.selectionEnd = newPos;
+    editor.focus();
+    afterEdit();
+  }
+
+  /* ---------- phrases ---------- */
+  function renderPhrases() {
+    phraseList.innerHTML = "";
+    if (!phrases.length) {
+      var li = document.createElement("li");
+      li.className = "empty";
+      li.textContent = "No auto text yet.";
+      phraseList.appendChild(li);
+      return;
+    }
+    phrases.forEach(function (p, i) {
+      var li = document.createElement("li");
+      li.className = "phrase-item";
+      var span = document.createElement("span");
+      span.className = "phrase-text";
+      span.textContent = p;
+      span.title = p;
+      var del = document.createElement("button");
+      del.className = "icon-btn";
+      del.textContent = "×";
+      del.title = "Delete";
+      del.setAttribute("aria-label", "Delete auto text");
+      del.addEventListener("click", function () {
+        phrases.splice(i, 1);
+        save(LS_PHRASES, phrases);
+        renderPhrases();
+        renderSuggestions();
+      });
+      li.appendChild(span);
+      li.appendChild(del);
+      phraseList.appendChild(li);
+    });
+  }
+
+  function addPhrase() {
+    var v = phraseInput.value.trim();
+    if (!v) return;
+    if (phrases.indexOf(v) === -1) {
+      phrases.push(v);
+      save(LS_PHRASES, phrases);
+      renderPhrases();
+    }
+    phraseInput.value = "";
+    phraseInput.focus();
+  }
+
+  /* ---------- history ---------- */
+  function fmtDate(iso) {
+    try {
+      return new Date(iso).toLocaleString(undefined, {
+        year: "numeric", month: "short", day: "numeric",
+        hour: "2-digit", minute: "2-digit"
+      });
+    } catch (e) { return ""; }
+  }
+
+  function copyText(text, btn) {
+    function done() {
+      var original = btn.textContent;
+      btn.textContent = "Copied";
+      btn.classList.add("copied-flash");
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("copied-flash");
+      }, 1200);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  }
+
+  function renderHistory() {
+    historyList.innerHTML = "";
+    var recent = history.slice(0, 3);
+    if (!recent.length) {
+      var li = document.createElement("li");
+      li.className = "empty";
+      li.textContent = "Nothing saved yet.";
+      historyList.appendChild(li);
+      return;
+    }
+    recent.forEach(function (entry) {
+      var li = document.createElement("li");
+      li.className = "history-item";
+
+      var main = document.createElement("div");
+      main.className = "history-main";
+      main.title = "Open in editor";
+      var preview = document.createElement("div");
+      preview.className = "history-preview";
+      var firstLine = (entry.text || "").split("\n")[0] || "(empty)";
+      preview.textContent = firstLine.length > 90 ? firstLine.slice(0, 90) + "…" : firstLine;
+      preview.title = firstLine;
+      var date = document.createElement("div");
+      date.className = "history-date";
+      date.textContent = fmtDate(entry.date);
+      main.appendChild(preview);
+      main.appendChild(date);
+      main.addEventListener("click", function () {
+        editor.value = entry.text || "";
+        editor.focus();
+        afterEdit();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      var copyBtn = document.createElement("button");
+      copyBtn.className = "btn small";
+      copyBtn.textContent = "Copy";
+      copyBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        copyText(entry.text || "", copyBtn);
+      });
+
+      var delBtn = document.createElement("button");
+      delBtn.className = "icon-btn";
+      delBtn.textContent = "×";
+      delBtn.title = "Delete";
+      delBtn.setAttribute("aria-label", "Delete entry");
+      delBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        history = history.filter(function (h) { return h.id !== entry.id; });
+        save(LS_HISTORY, history);
+        renderHistory();
+      });
+
+      li.appendChild(main);
+      li.appendChild(copyBtn);
+      li.appendChild(delBtn);
+      historyList.appendChild(li);
+    });
+  }
+
+  function saveEntry() {
+    var text = editor.value.trim();
+    if (!text) return;
+    history.unshift({ id: Date.now(), text: editor.value, date: new Date().toISOString() });
+    history = history.slice(0, 30);
+    save(LS_HISTORY, history);
+    renderHistory();
+    var btn = document.getElementById("save-btn");
+    var original = btn.textContent;
+    btn.textContent = "Saved";
+    setTimeout(function () { btn.textContent = original; }, 1200);
+  }
+
+  /* ---------- events ---------- */
+  function afterEdit() {
+    updateCount();
+    save(LS_DRAFT, editor.value);
+    renderSuggestions();
+  }
+
+  editor.addEventListener("input", afterEdit);
+  editor.addEventListener("keyup", renderSuggestions);
+  editor.addEventListener("click", renderSuggestions);
+  document.addEventListener("click", function (e) {
+    if (!suggestBar.contains(e.target) && e.target !== editor) {
+      suggestBar.classList.remove("show");
+    }
+  });
+
+  document.getElementById("save-btn").addEventListener("click", saveEntry);
+  document.getElementById("clear-btn").addEventListener("click", function () {
+    if (editor.value && !confirm("Clear the editor?")) return;
+    editor.value = "";
+    afterEdit();
+    editor.focus();
+  });
+
+  document.getElementById("phrase-add").addEventListener("click", addPhrase);
+  phraseInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") addPhrase();
+  });
+
+  /* ---------- init ---------- */
+  editor.value = load(LS_DRAFT, "");
+  updateCount();
+  renderPhrases();
+  renderHistory();
+})();
+</script>
+</body>
+</html>
