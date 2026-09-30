@@ -636,7 +636,6 @@
   });
 
   function clearEditor() {
-    if (editor.value && !confirm("Clear the editor?")) return;
     editor.value = "";
     afterEdit();
     editor.focus();
