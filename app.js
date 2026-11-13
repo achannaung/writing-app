@@ -42,9 +42,7 @@
   var editor = document.getElementById("editor");
   var suggestBar = document.getElementById("suggest-bar");
   var suggestStatus = document.getElementById("suggest-status");
-  var statWords = document.getElementById("stat-words");
-  var statChars = document.getElementById("stat-chars");
-  var statSaved = document.getElementById("stat-saved");
+  var wordcount = document.getElementById("wordcount");
   var themeToggle = document.getElementById("theme-toggle");
   var phraseInput = document.getElementById("phrase-input");
   var phraseError = document.getElementById("phrase-error");
@@ -130,14 +128,6 @@
     btn._flashTimer = setTimeout(function () {
       node.textContent = node.dataset.original;
     }, 1200);
-  }
-
-  function fmtNumber(value) {
-    try {
-      return value.toLocaleString();
-    } catch (e) {
-      return String(value);
-    }
   }
 
   /* ------------------------------------------------------------------ *
@@ -358,10 +348,10 @@
     var trimmed = text.trim();
     var words = trimmed ? trimmed.split(/\s+/).length : 0;
     var characters = countCharacters(text);
-    statWords.textContent = fmtNumber(words);
-    statChars.textContent = fmtNumber(characters);
-    statWords.title = words === 1 ? "1 word" : words + " words";
-    statChars.title = "Counted by visible character; Burmese text is measured more accurately this way.";
+    wordcount.textContent =
+      words + (words === 1 ? " word" : " words") + " · " +
+      characters + (characters === 1 ? " character" : " characters");
+    wordcount.title = "Words are separated by spaces. Burmese text is measured more accurately by characters.";
   }
 
   /* ------------------------------------------------------------------ *
@@ -672,7 +662,6 @@
   }
 
   function renderHistory() {
-    statSaved.textContent = fmtNumber(history.length);
     historyList.replaceChildren();
     var visible = historyShowAll ? history : history.slice(0, RECENT_PREVIEW);
 
