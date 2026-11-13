@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Writing App</title>
 <meta name="description" content="A quiet, offline-friendly place to write, with auto-text shortcuts for Myanmar township and town names.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" id="meta-theme" content="#2e3940">
 <meta property="og:title" content="Writing App">
 <meta property="og:description" content="A quiet place to write, with auto-text shortcuts for Myanmar place names.">
 <meta property="og:type" content="website">
@@ -17,68 +16,124 @@
 <body>
 <a class="skip-link" href="#editor">Skip to editor</a>
 
-<div class="wrap">
+<div class="shell">
 
-  <header>
-    <h1>Writing App</h1>
-    <div class="sub">A quiet place to write.</div>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round">
+          <path d="M16 4.4v23.2"/>
+          <path d="M5.9 10.2l20.2 11.6"/>
+          <path d="M26.1 10.2L5.9 21.8"/>
+        </g>
+      </svg>
+      <span class="brand-name">Writing App</span>
+    </div>
+
+    <div class="topbar-actions">
+      <button type="button" class="cta" id="save-btn"><span class="btn-label">Save</span></button>
+      <button type="button" class="square" id="theme-toggle" aria-label="Switch to light theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+          </g>
+        </svg>
+      </button>
+    </div>
   </header>
 
   <main>
-    <div class="editor-card">
+
+    <section class="panel panel-stats" aria-label="Document overview">
+      <ul class="stats">
+        <li class="stat">
+          <span class="stat-value" id="stat-words">0</span>
+          <span class="stat-label">Words</span>
+        </li>
+        <li class="stat">
+          <span class="stat-value" id="stat-chars">0</span>
+          <span class="stat-label">Characters</span>
+        </li>
+        <li class="stat">
+          <span class="stat-value" id="stat-saved">0</span>
+          <span class="stat-label">Saved entries</span>
+        </li>
+      </ul>
+
+      <button type="button" class="feature-btn" id="download-btn">
+        <span class="feature-chip" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M7 17 17 7M9.2 7H17v7.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="btn-label">Download .txt</span>
+      </button>
+    </section>
+
+    <section class="panel panel-editor" aria-label="Draft">
       <label class="sr-only" for="editor">Draft</label>
       <textarea id="editor" placeholder="Start writing…" spellcheck="true"></textarea>
       <div id="suggest-bar" role="region" aria-label="Auto text suggestions" hidden></div>
-    </div>
-    <p id="suggest-status" class="sr-only" role="status" aria-live="polite"></p>
 
-    <div class="toolbar">
-      <span id="wordcount">0 words · 0 characters</span>
-      <div class="btn-row">
-        <button type="button" class="btn ghost" id="clear-btn">Clear</button>
-        <button type="button" class="btn ghost" id="copy-btn">Copy</button>
-        <button type="button" class="btn primary" id="save-btn">Save</button>
+      <div class="editor-foot">
+        <p class="status" id="storage-status">Saved in this browser only.</p>
+        <div class="foot-actions">
+          <button type="button" class="ghost" id="copy-btn"><span class="btn-label">Copy</span></button>
+          <button type="button" class="ghost" id="clear-btn"><span class="btn-label">Clear</span></button>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <p id="suggest-status" class="sr-only" role="status" aria-live="polite"></p>
 
     <div class="alert" id="alert" role="alert" hidden>
       <span id="alert-text"></span>
-      <button type="button" class="btn small" id="alert-export">Download backup</button>
+      <button type="button" class="alert-btn" id="alert-export"><span class="btn-label">Download backup</span></button>
     </div>
 
     <div class="io-row">
-      <button type="button" class="btn small" id="download-btn">Download .txt</button>
-      <button type="button" class="btn small" id="backup-btn">Back up</button>
-      <button type="button" class="btn small" id="restore-btn">Restore</button>
+      <button type="button" class="chip-btn" id="backup-btn"><span class="btn-label">Back up</span></button>
+      <button type="button" class="chip-btn" id="restore-btn"><span class="btn-label">Restore</span></button>
       <input type="file" id="restore-file" accept="application/json,.json" hidden>
     </div>
 
-    <p class="storage-status" id="storage-status">Saved in this browser only.</p>
-
-    <section>
-      <h2>Auto text</h2>
-      <div class="hint">Save phrases you use often. Type the first few letters while writing, then click a suggestion or press Alt+1&ndash;5.</div>
-      <div class="add-row">
-        <label class="sr-only" for="phrase-input">New auto text</label>
-        <input id="phrase-input" type="text" placeholder="e.g. Kanbalu Township (Sagaing Region)" maxlength="200" autocomplete="off">
-        <button type="button" class="btn" id="phrase-add">Add</button>
-      </div>
-      <p class="field-error" id="phrase-error" role="alert"></p>
-      <div class="filter-row">
-        <label class="sr-only" for="phrase-filter">Filter auto text</label>
-        <input id="phrase-filter" type="search" placeholder="Filter auto text…" autocomplete="off">
+    <section class="block" aria-labelledby="autotext-heading">
+      <div class="block-head">
+        <h2 id="autotext-heading">Auto text</h2>
         <span class="count" id="phrase-count"></span>
       </div>
+      <p class="hint">Type the first few letters while writing, then pick a suggestion or press Alt+1&ndash;5.</p>
+
+      <div class="field-row">
+        <label class="sr-only" for="phrase-input">New auto text</label>
+        <input id="phrase-input" type="text" placeholder="Add a phrase…" maxlength="200" autocomplete="off">
+        <button type="button" class="cta small" id="phrase-add"><span class="btn-label">Add</span></button>
+      </div>
+      <p class="field-error" id="phrase-error" role="alert"></p>
+
+      <div class="field-row">
+        <label class="sr-only" for="phrase-filter">Filter auto text</label>
+        <input id="phrase-filter" type="search" placeholder="Filter…" autocomplete="off">
+      </div>
+
       <ul class="phrase-list" id="phrase-list"></ul>
-      <button type="button" class="btn small show-more" id="phrase-more" hidden></button>
+      <button type="button" class="chip-btn show-more" id="phrase-more" hidden><span class="btn-label"></span></button>
     </section>
 
-    <section>
-      <h2>Recent</h2>
-      <div class="hint">Saved entries. Click one to open it; your current draft is saved to Recent first.</div>
+    <section class="block" aria-labelledby="recent-heading">
+      <div class="block-head">
+        <h2 id="recent-heading">Recent</h2>
+      </div>
+      <p class="hint">Saved entries. Opening one saves your current draft first.</p>
+
       <ul class="history-list" id="history-list"></ul>
-      <button type="button" class="btn small show-more" id="history-more" hidden></button>
+      <button type="button" class="chip-btn show-more" id="history-more" hidden><span class="btn-label"></span></button>
     </section>
+
   </main>
 
   <footer>

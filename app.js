@@ -42,7 +42,10 @@
   var editor = document.getElementById("editor");
   var suggestBar = document.getElementById("suggest-bar");
   var suggestStatus = document.getElementById("suggest-status");
-  var wordcount = document.getElementById("wordcount");
+  var statWords = document.getElementById("stat-words");
+  var statChars = document.getElementById("stat-chars");
+  var statSaved = document.getElementById("stat-saved");
+  var themeToggle = document.getElementById("theme-toggle");
   var phraseInput = document.getElementById("phrase-input");
   var phraseError = document.getElementById("phrase-error");
   var phraseFilterInput = document.getElementById("phrase-filter");
@@ -109,13 +112,32 @@
     return Date.now() + "-" + Math.random().toString(36).slice(2, 8);
   }
 
+  // Buttons carry an optional <span class="btn-label"> so the icon or chip
+  // around the text survives a label change.
+  function labelNode(btn) {
+    return btn.querySelector(".btn-label") || btn;
+  }
+
+  function setLabel(btn, label) {
+    labelNode(btn).textContent = label;
+  }
+
   function flashButton(btn, label) {
-    if (!btn.dataset.original) btn.dataset.original = btn.textContent;
-    btn.textContent = label;
+    var node = labelNode(btn);
+    if (!node.dataset.original) node.dataset.original = node.textContent;
+    node.textContent = label;
     clearTimeout(btn._flashTimer);
     btn._flashTimer = setTimeout(function () {
-      btn.textContent = btn.dataset.original;
+      node.textContent = node.dataset.original;
     }, 1200);
+  }
+
+  function fmtNumber(value) {
+    try {
+      return value.toLocaleString();
+    } catch (e) {
+      return String(value);
+    }
   }
 
   /* ------------------------------------------------------------------ *
@@ -169,7 +191,7 @@
 
   function setStatus(message, kind) {
     storageStatus.textContent = message;
-    storageStatus.className = "storage-status" + (kind ? " " + kind : "");
+    storageStatus.className = "status" + (kind ? " " + kind : "");
   }
 
   /* ------------------------------------------------------------------ *
@@ -336,9 +358,10 @@
     var trimmed = text.trim();
     var words = trimmed ? trimmed.split(/\s+/).length : 0;
     var characters = countCharacters(text);
-    wordcount.textContent = words + (words === 1 ? " word" : " words") +
-      " · " + characters + (characters === 1 ? " character" : " characters");
-    wordcount.title = "Words are separated by spaces. Burmese text is measured more accurately by characters.";
+    statWords.textContent = fmtNumber(words);
+    statChars.textContent = fmtNumber(characters);
+    statWords.title = words === 1 ? "1 word" : words + " words";
+    statChars.title = "Counted by visible character; Burmese text is measured more accurately this way.";
   }
 
   /* ------------------------------------------------------------------ *
@@ -581,7 +604,7 @@
 
     if (!filter && matches.length > PHRASE_PREVIEW) {
       phraseMore.hidden = false;
-      phraseMore.textContent = phraseShowAll ? "Show fewer" : "Show all " + matches.length;
+      setLabel(phraseMore, phraseShowAll ? "Show fewer" : "Show all " + matches.length);
     } else {
       phraseMore.hidden = true;
     }
@@ -649,6 +672,7 @@
   }
 
   function renderHistory() {
+    statSaved.textContent = fmtNumber(history.length);
     historyList.replaceChildren();
     var visible = historyShowAll ? history : history.slice(0, RECENT_PREVIEW);
 
@@ -683,7 +707,7 @@
 
       var copy = document.createElement("button");
       copy.type = "button";
-      copy.className = "btn small";
+      copy.className = "chip-btn small";
       copy.textContent = "Copy";
       copy.addEventListener("click", function (e) {
         e.stopPropagation();
@@ -712,7 +736,7 @@
 
     if (history.length > RECENT_PREVIEW) {
       historyMore.hidden = false;
-      historyMore.textContent = historyShowAll ? "Show fewer" : "Show all " + history.length;
+      setLabel(historyMore, historyShowAll ? "Show fewer" : "Show all " + history.length);
     } else {
       historyMore.hidden = true;
     }
@@ -994,6 +1018,31 @@
     var file = restoreFile.files && restoreFile.files[0];
     restoreFile.value = "";
     if (file) restoreBackup(file);
+  });
+
+  /* ------------------------------------------------------------------ *
+   * Theme
+   * ------------------------------------------------------------------ */
+
+  var THEME_KEY = "writingApp.theme.v1";
+
+  function applyTheme(theme) {
+    var next = theme === "light" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    themeToggle.setAttribute(
+      "aria-label",
+      next === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
+    var meta = document.getElementById("meta-theme");
+    if (meta) meta.setAttribute("content", next === "dark" ? "#2e3940" : "#eef1f2");
+  }
+
+  applyTheme(read(THEME_KEY, "dark"));
+
+  themeToggle.addEventListener("click", function () {
+    var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+    persist(THEME_KEY, next);
   });
 
   /* ------------------------------------------------------------------ *

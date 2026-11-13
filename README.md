@@ -6,12 +6,12 @@ No accounts, no backend, no analytics. Text is stored in the browser's `localSto
 
 ## Features
 
-- **Distraction-free editor** with a live word and character count.
+- **Distraction-free editor** with live word and character counts.
 - **Auto text**: 454 place-name phrases (286 townships and 168 towns) plus your own. Type the first few letters of a name (or a shortcut such as `pro-res/`), then click a suggestion or press `Alt+1`–`Alt+5`.
 - **Autosave** with a visible save status, plus debounced writes and a flush when the tab closes.
 - **Recent entries**: save snapshots of your draft and reopen them; up to 30 are kept.
 - **Export**: download the draft as `.txt`, or back up/restore everything (draft, auto text, recent entries) as JSON.
-- **Light and dark mode** following the system setting.
+- **Dark by default**, with a light theme one tap away; the choice is remembered.
 - **Accessible basics**: keyboard-reachable controls, visible focus rings, AA-contrast text, labels for inputs.
 - **No build step** and no runtime dependencies.
 
