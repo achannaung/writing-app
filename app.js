@@ -477,6 +477,7 @@
       chip.textContent = (match.trigger ? match.trigger + " \u2192 " : "") + match.text;
       chip.title = "Insert: " + match.text;
       chip.setAttribute("aria-label", "Insert " + match.text);
+      chip._match = match;
       chip.addEventListener("click", function () { insertPhrase(match); });
       suggestBar.appendChild(chip);
     });
@@ -951,6 +952,22 @@
     if (e.key === "Escape" && currentMatches.length) {
       hideSuggestions();
     }
+  });
+
+  // Tab chooses the highlighted suggestion directly; Enter is not required.
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab") return;
+    if (currentMatches.length === 0) return;
+    if (composing || e.isComposing) return;
+
+    e.preventDefault();
+
+    var target = null;
+    if (suggestBar.contains(e.target)) {
+      var chip = e.target && e.target.closest ? e.target.closest(".suggest-chip") : null;
+      if (chip && chip._match) target = chip._match;
+    }
+    insertPhrase(target || currentMatches[0]);
   });
 
   document.addEventListener("click", function (e) {
