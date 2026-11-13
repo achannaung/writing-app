@@ -1,0 +1,1573 @@
+{
+  "version": 2,
+  "phrases": [
+    {
+      "text": "pro-resistance media reported that",
+      "trigger": "pro-res/"
+    },
+    {
+      "text": "an information-sharing channel reported that",
+      "trigger": "an info/"
+    },
+    {
+      "text": "media reported that"
+    },
+    {
+      "text": "Kyauk Myaung-based LIB 12 barracks (Shwebo Township)",
+      "trigger": "kyaukmyaung/"
+    },
+    {
+      "text": "Military Training Battalion No.10 barracks",
+      "trigger": "training/"
+    },
+    {
+      "text": "airdropped some packages of rations and ammunition"
+    },
+    {
+      "text": "at an unknown location",
+      "trigger": "at an/"
+    },
+    {
+      "text": "local PDF units",
+      "trigger": "pdf/"
+    },
+    {
+      "text": "dropped bombs"
+    },
+    {
+      "text": "casualties were reported, although not specified."
+    },
+    {
+      "text": "However, these casualty figures have not been substantiated by evidence."
+    },
+    {
+      "text": "carried out strafing targeting"
+    },
+    {
+      "text": "conducted drone strikes",
+      "trigger": "drone/"
+    },
+    {
+      "text": "notified civilians not to use"
+    },
+    {
+      "text": "security forces",
+      "trigger": "sec/"
+    },
+    {
+      "text": "conducted a strike targeting an unknown location"
+    },
+    {
+      "text": "further investigation would be taking place, as per media reports."
+    },
+    {
+      "text": "this is yet to be corroborated by other media sources.",
+      "trigger": "yet/"
+    },
+    {
+      "text": "targeting an unknown location."
+    },
+    {
+      "text": "part of the township."
+    },
+    {
+      "text": "pro-military media reported that",
+      "trigger": "pro-mi/"
+    },
+    {
+      "text": "Tada-U Airbase",
+      "trigger": "tada/"
+    },
+    {
+      "text": "Meiktila Airbase",
+      "trigger": "meik/"
+    },
+    {
+      "text": "Magway Airbase"
+    },
+    {
+      "text": "Y-12 aircraft",
+      "trigger": "y12/"
+    },
+    {
+      "text": "fighter jet",
+      "trigger": "fig/"
+    },
+    {
+      "text": "paramotor",
+      "trigger": "para/"
+    },
+    {
+      "text": "gyrocopter",
+      "trigger": "gyro/"
+    },
+    {
+      "text": "Northwestern Regional Military Command (Monywa Town)",
+      "trigger": "north/"
+    },
+    {
+      "text": "the Directorate of Defence Industry (DDI) Factory No.",
+      "trigger": "ddi/"
+    },
+    {
+      "text": "internally displaced persons (IDP)",
+      "trigger": "idp/"
+    },
+    {
+      "text": "Ma Au Village military checkpoint",
+      "trigger": "maau/"
+    },
+    {
+      "text": "Swan Yee Htet petrol station military checkpoint"
+    },
+    {
+      "text": "Ayadaw Township (Sagaing Region)"
+    },
+    {
+      "text": "Budalin Township (Sagaing Region)"
+    },
+    {
+      "text": "Chaung-U Township (Sagaing Region)"
+    },
+    {
+      "text": "Depayin Township (Sagaing Region)"
+    },
+    {
+      "text": "Hkamti Township (Sagaing Region)"
+    },
+    {
+      "text": "Homalin Township (Sagaing Region)"
+    },
+    {
+      "text": "Indaw Township (Sagaing Region)"
+    },
+    {
+      "text": "Kalay Township (Sagaing Region)"
+    },
+    {
+      "text": "Kalewa Township (Sagaing Region)"
+    },
+    {
+      "text": "Kanbalu Township (Sagaing Region)"
+    },
+    {
+      "text": "Kani Township (Sagaing Region)"
+    },
+    {
+      "text": "Katha Township (Sagaing Region)"
+    },
+    {
+      "text": "Kawlin Township (Sagaing Region)"
+    },
+    {
+      "text": "Khin-U Township (Sagaing Region)"
+    },
+    {
+      "text": "Kyunhla Township (Sagaing Region)"
+    },
+    {
+      "text": "Lahe Township (Sagaing Region)"
+    },
+    {
+      "text": "Lay Shi Township (Sagaing Region)"
+    },
+    {
+      "text": "Mingin Township (Sagaing Region)"
+    },
+    {
+      "text": "Monywa Township (Sagaing Region)"
+    },
+    {
+      "text": "Myaung Township (Sagaing Region)"
+    },
+    {
+      "text": "Myinmu Township (Sagaing Region)"
+    },
+    {
+      "text": "Nanyun Township (Sagaing Region)"
+    },
+    {
+      "text": "Sagaing Township (Sagaing Region)"
+    },
+    {
+      "text": "Salingyi Township (Sagaing Region)"
+    },
+    {
+      "text": "Shwebo Township (Sagaing Region)"
+    },
+    {
+      "text": "Tabayin Township (Sagaing Region)"
+    },
+    {
+      "text": "Tamu Township (Sagaing Region)"
+    },
+    {
+      "text": "Tigyaing Township (Sagaing Region)"
+    },
+    {
+      "text": "Wetlet Township (Sagaing Region)"
+    },
+    {
+      "text": "Wuntho Township (Sagaing Region)"
+    },
+    {
+      "text": "Ye-U Township (Sagaing Region)"
+    },
+    {
+      "text": "Yinmarbin Township (Sagaing Region)"
+    },
+    {
+      "text": "Aunglan Township (Magway Region)"
+    },
+    {
+      "text": "Chauk Township (Magway Region)"
+    },
+    {
+      "text": "Gangaw Township (Magway Region)"
+    },
+    {
+      "text": "Htilin Township (Magway Region)"
+    },
+    {
+      "text": "Kamma Township (Magway Region)"
+    },
+    {
+      "text": "Magway Township (Magway Region)",
+      "trigger": "mag/"
+    },
+    {
+      "text": "Minbu Township (Magway Region)"
+    },
+    {
+      "text": "Mindon Township (Magway Region)"
+    },
+    {
+      "text": "Minhla Township (Magway Region)"
+    },
+    {
+      "text": "Myaing Township (Magway Region)"
+    },
+    {
+      "text": "Myothit Township (Magway Region)"
+    },
+    {
+      "text": "Natmauk Township (Magway Region)"
+    },
+    {
+      "text": "Ngape Township (Magway Region)",
+      "trigger": "nga/"
+    },
+    {
+      "text": "Pakokku Township (Magway Region)",
+      "trigger": "pako/"
+    },
+    {
+      "text": "Pauk Township (Magway Region)"
+    },
+    {
+      "text": "Pwintbyu Township (Magway Region)",
+      "trigger": "pwint/"
+    },
+    {
+      "text": "Salin Township (Magway Region)"
+    },
+    {
+      "text": "Saw Township (Magway Region)"
+    },
+    {
+      "text": "Seikphyu Township (Magway Region)"
+    },
+    {
+      "text": "Sidoktaya Township (Magway Region)",
+      "trigger": "sid/"
+    },
+    {
+      "text": "Sinbaungwe Township (Magway Region)",
+      "trigger": "sinb/"
+    },
+    {
+      "text": "Taungdwingyi Township (Magway Region)",
+      "trigger": "taungd/"
+    },
+    {
+      "text": "Thayet Township (Magway Region)"
+    },
+    {
+      "text": "Yenangyaung Township (Magway Region)",
+      "trigger": "yenan/"
+    },
+    {
+      "text": "Yesagyo Township (Magway Region)"
+    },
+    {
+      "text": "Amarapura Township (Mandalay Region)",
+      "trigger": "amara/"
+    },
+    {
+      "text": "Aungmyaythazan Township (Mandalay Region)"
+    },
+    {
+      "text": "Chanayethazan Township (Mandalay Region)",
+      "trigger": "chanaye/"
+    },
+    {
+      "text": "Chanmyathazi Township (Mandalay Region)",
+      "trigger": "chanmya/"
+    },
+    {
+      "text": "Kyaukpadaung Township (Mandalay Region)"
+    },
+    {
+      "text": "Kyaukse Township (Mandalay Region)"
+    },
+    {
+      "text": "Madaya Township (Mandalay Region)"
+    },
+    {
+      "text": "Mahaaungmyay Township (Mandalay Region)",
+      "trigger": "maha/"
+    },
+    {
+      "text": "Mahlaing Township (Mandalay Region)"
+    },
+    {
+      "text": "Meiktila Township (Mandalay Region)"
+    },
+    {
+      "text": "Mogoke Township (Mandalay Region)"
+    },
+    {
+      "text": "Myingyan Township (Mandalay Region)"
+    },
+    {
+      "text": "Myittha Township (Mandalay Region)"
+    },
+    {
+      "text": "Natogyi Township (Mandalay Region)"
+    },
+    {
+      "text": "Ngazun Township (Mandalay Region)"
+    },
+    {
+      "text": "Nyaung-U Township (Mandalay Region)"
+    },
+    {
+      "text": "Patheingyi Township (Mandalay Region)"
+    },
+    {
+      "text": "Pyawbwe Township (Mandalay Region)"
+    },
+    {
+      "text": "Pyigyitagon Township (Mandalay Region)",
+      "trigger": "pyigyi/"
+    },
+    {
+      "text": "Pyinoolwin Township (Mandalay Region)"
+    },
+    {
+      "text": "Singu Township (Mandalay Region)"
+    },
+    {
+      "text": "Sintgaing Township (Mandalay Region)",
+      "trigger": "sint/"
+    },
+    {
+      "text": "Tada-U Township (Mandalay Region)"
+    },
+    {
+      "text": "Taungtha Township (Mandalay Region)"
+    },
+    {
+      "text": "Thabeikkyin Township (Mandalay Region)"
+    },
+    {
+      "text": "Thazi Township (Mandalay Region)"
+    },
+    {
+      "text": "Wundwin Township (Mandalay Region)"
+    },
+    {
+      "text": "Yamethin Township (Mandalay Region)"
+    },
+    {
+      "text": "Ann Township (Rakhine State)"
+    },
+    {
+      "text": "Buthidaung Township (Rakhine State)"
+    },
+    {
+      "text": "Gwa Township (Rakhine State)"
+    },
+    {
+      "text": "Kyaukpyu Township (Rakhine State)"
+    },
+    {
+      "text": "Kyauktaw Township (Rakhine State)"
+    },
+    {
+      "text": "Manaung Township (Rakhine State)"
+    },
+    {
+      "text": "Maungdaw Township (Rakhine State)"
+    },
+    {
+      "text": "Minbya Township (Rakhine State)"
+    },
+    {
+      "text": "Mrauk-U Township (Rakhine State)"
+    },
+    {
+      "text": "Myebon Township (Rakhine State)"
+    },
+    {
+      "text": "Pauktaw Township (Rakhine State)"
+    },
+    {
+      "text": "Ponnagyun Township (Rakhine State)"
+    },
+    {
+      "text": "Ramree Township (Rakhine State)"
+    },
+    {
+      "text": "Rathedaung Township (Rakhine State)"
+    },
+    {
+      "text": "Sittwe Township (Rakhine State)"
+    },
+    {
+      "text": "Thandwe Township (Rakhine State)"
+    },
+    {
+      "text": "Toungup Township (Rakhine State)"
+    },
+    {
+      "text": "Falam Township (Chin State)"
+    },
+    {
+      "text": "Hakha Township (Chin State)"
+    },
+    {
+      "text": "Kanpetlet Township (Chin State)"
+    },
+    {
+      "text": "Matupi Township (Chin State)"
+    },
+    {
+      "text": "Mindat Township (Chin State)"
+    },
+    {
+      "text": "Paletwa Township (Chin State)"
+    },
+    {
+      "text": "Tedim Township (Chin State)"
+    },
+    {
+      "text": "Thantlang Township (Chin State)"
+    },
+    {
+      "text": "Tonzang Township (Chin State)"
+    },
+    {
+      "text": "Det Khi Na Thi Ri Township (Nay Pyi Taw Territory)",
+      "trigger": "detkhina/"
+    },
+    {
+      "text": "Lewe Township (Nay Pyi Taw Territory)"
+    },
+    {
+      "text": "Oke Ta Ra Thi Ri Township (Nay Pyi Taw Territory)",
+      "trigger": "ottara/"
+    },
+    {
+      "text": "Poke Ba Thi Ri Township (Nay Pyi Taw Territory)",
+      "trigger": "pobba/"
+    },
+    {
+      "text": "Pyinmana Township (Nay Pyi Taw Territory)"
+    },
+    {
+      "text": "Za Bu Thi Ri Township (Nay Pyi Taw Territory)",
+      "trigger": "zabu/"
+    },
+    {
+      "text": "Zay Yar Thi Ri Township (Nay Pyi Taw Territory)",
+      "trigger": "zayar/"
+    },
+    {
+      "text": "Tatkon Township (Nay Pyi Taw Union Territory)"
+    },
+    {
+      "text": "Bhamo Township (Kachin State)"
+    },
+    {
+      "text": "Chipwi Township (Kachin State)"
+    },
+    {
+      "text": "Hpakant Township (Kachin State)"
+    },
+    {
+      "text": "Hsawlaw Township (Kachin State)"
+    },
+    {
+      "text": "Injangyang Township (Kachin State)"
+    },
+    {
+      "text": "Kawnglanghpu Township (Kachin State)"
+    },
+    {
+      "text": "Machanbaw Township (Kachin State)"
+    },
+    {
+      "text": "Mansi Township (Kachin State)"
+    },
+    {
+      "text": "Mogaung Township (Kachin State)"
+    },
+    {
+      "text": "Mohnyin Township (Kachin State)"
+    },
+    {
+      "text": "Momauk Township (Kachin State)"
+    },
+    {
+      "text": "Myitkyina Township (Kachin State)"
+    },
+    {
+      "text": "Nawngmun Township (Kachin State)"
+    },
+    {
+      "text": "Nogmung Township (Kachin State)"
+    },
+    {
+      "text": "Putao Township (Kachin State)"
+    },
+    {
+      "text": "Shwegu Township (Kachin State)"
+    },
+    {
+      "text": "Sumprabum Township (Kachin State)"
+    },
+    {
+      "text": "Tanai Township (Kachin State)"
+    },
+    {
+      "text": "Waingmaw Township (Kachin State)"
+    },
+    {
+      "text": "Bogale Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Danubyu Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Dedaye Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Einme Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Hinthada Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Ingapu Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Kangyidaunt Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Kyaiklat Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Kyangin Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Kyaunggon Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Kyonpyaw Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Labutta Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Lemyethna Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Maubin Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Mawlamyinegyun Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Myanaung Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Myaungmya Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Ngapudaw Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Nyaungdon Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Pantanaw Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Pathein Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Pyapon Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Thabaung Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Wakema Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Yegyi Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Yekyi Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Zalun Township (Ayeyarwady Region)"
+    },
+    {
+      "text": "Bago Township (Bago Region)"
+    },
+    {
+      "text": "Daik-U Township (Bago Region)"
+    },
+    {
+      "text": "Gyobingauk Township (Bago Region)"
+    },
+    {
+      "text": "Kawa Township (Bago Region)"
+    },
+    {
+      "text": "Kyauktaga Township (Bago Region)"
+    },
+    {
+      "text": "Letpadan Township (Bago Region)"
+    },
+    {
+      "text": "Madauk Township (Bago Region)"
+    },
+    {
+      "text": "Minhla Township (Bago Region)"
+    },
+    {
+      "text": "Monyo Township (Bago Region)"
+    },
+    {
+      "text": "Nattalin Township (Bago Region)"
+    },
+    {
+      "text": "Nyaunglebin Township (Bago Region)"
+    },
+    {
+      "text": "Octwin Township (Bago Region)"
+    },
+    {
+      "text": "Okpho Township (Bago Region)"
+    },
+    {
+      "text": "Okpo Township (Bago Region)"
+    },
+    {
+      "text": "Oktwin Township (Bago Region)"
+    },
+    {
+      "text": "Padaung Township (Bago Region)"
+    },
+    {
+      "text": "Paukkhaung Township (Bago Region)"
+    },
+    {
+      "text": "Paungde Township (Bago Region)"
+    },
+    {
+      "text": "Phyu Township (Bago Region)"
+    },
+    {
+      "text": "Pyay Township (Bago Region)"
+    },
+    {
+      "text": "Pyu Township (Bago Region)"
+    },
+    {
+      "text": "Shwegyin Township (Bago Region)"
+    },
+    {
+      "text": "Taungoo Township (Bago Region)"
+    },
+    {
+      "text": "Thayarwady Township (Bago Region)"
+    },
+    {
+      "text": "Thegon Township (Bago Region)"
+    },
+    {
+      "text": "Thoneze Township (Bago Region)"
+    },
+    {
+      "text": "Waw Township (Bago Region)"
+    },
+    {
+      "text": "Yedashe Township (Bago Region)"
+    },
+    {
+      "text": "Zigon Township (Bago Region)"
+    },
+    {
+      "text": "Bokpyin Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Dawei Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Kawthoung Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Kyunsu Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Launglon Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Myeik Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Palaw Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Tanintharyi Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Thayetchaung Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Yebyu Township (Tanintharyi Region)"
+    },
+    {
+      "text": "Hlaingbwe Township (Kayin State)"
+    },
+    {
+      "text": "Hpa-an Township (Kayin State)"
+    },
+    {
+      "text": "Hpapun Township (Kayin State)"
+    },
+    {
+      "text": "Kawkareik Township (Kayin State)"
+    },
+    {
+      "text": "Kyainseikgyi Township (Kayin State)"
+    },
+    {
+      "text": "Myawaddy Township (Kayin State)"
+    },
+    {
+      "text": "Thandaunggyi Township (Kayin State)"
+    },
+    {
+      "text": "Bilin Township (Mon State)"
+    },
+    {
+      "text": "Chaungzon Township (Mon State)"
+    },
+    {
+      "text": "Kyaikmaraw Township (Mon State)"
+    },
+    {
+      "text": "Kyaikto Township (Mon State)"
+    },
+    {
+      "text": "Mawlamyine Township (Mon State)"
+    },
+    {
+      "text": "Mudon Township (Mon State)"
+    },
+    {
+      "text": "Paung Township (Mon State)"
+    },
+    {
+      "text": "Thanbyuzayat Township (Mon State)"
+    },
+    {
+      "text": "Thaton Township (Mon State)"
+    },
+    {
+      "text": "Ye Township (Mon State)"
+    },
+    {
+      "text": "Bawlakhe Township (Kayah State)"
+    },
+    {
+      "text": "Demoso Township (Kayah State)"
+    },
+    {
+      "text": "Hpasawng Township (Kayah State)"
+    },
+    {
+      "text": "Hpruso Township (Kayah State)"
+    },
+    {
+      "text": "Loikaw Township (Kayah State)"
+    },
+    {
+      "text": "Mese Township (Kayah State)"
+    },
+    {
+      "text": "Shadaw Township (Kayah State)"
+    },
+    {
+      "text": "Kengtung Township (Eastern Shan State)"
+    },
+    {
+      "text": "Monghpyak Township (Eastern Shan State)"
+    },
+    {
+      "text": "Monghsat Township (Eastern Shan State)"
+    },
+    {
+      "text": "Mongkhet Township (Eastern Shan State)"
+    },
+    {
+      "text": "Mongla Township (Eastern Shan State)"
+    },
+    {
+      "text": "Mongping Township (Eastern Shan State)"
+    },
+    {
+      "text": "Mongton Township (Eastern Shan State)"
+    },
+    {
+      "text": "Mongyang Township (Eastern Shan State)"
+    },
+    {
+      "text": "Mongyawng Township (Eastern Shan State)"
+    },
+    {
+      "text": "Tachileik Township (Eastern Shan State)"
+    },
+    {
+      "text": "Hopang Township (Northern Shan State)"
+    },
+    {
+      "text": "Hsenwi Township (Northern Shan State)"
+    },
+    {
+      "text": "Hsipaw Township (Northern Shan State)"
+    },
+    {
+      "text": "Kawng Min Hsang Township (Northern Shan State)"
+    },
+    {
+      "text": "Konkyan Township (Northern Shan State)"
+    },
+    {
+      "text": "Kunlong Township (Northern Shan State)"
+    },
+    {
+      "text": "Kutkai Township (Northern Shan State)"
+    },
+    {
+      "text": "Kyaukme Township (Northern Shan State)"
+    },
+    {
+      "text": "Lashio Township (Northern Shan State)"
+    },
+    {
+      "text": "Laukkaing Township (Northern Shan State)"
+    },
+    {
+      "text": "Mabein Township (Northern Shan State)"
+    },
+    {
+      "text": "Mantong Township (Northern Shan State)"
+    },
+    {
+      "text": "Matman Township (Northern Shan State)"
+    },
+    {
+      "text": "Mongmaw Township (Northern Shan State)"
+    },
+    {
+      "text": "Mongmit Township (Northern Shan State)"
+    },
+    {
+      "text": "Muse Township (Northern Shan State)"
+    },
+    {
+      "text": "Namhsan Township (Northern Shan State)"
+    },
+    {
+      "text": "Namkham Township (Northern Shan State)"
+    },
+    {
+      "text": "Namtu Township (Northern Shan State)"
+    },
+    {
+      "text": "Narphan Township (Northern Shan State)"
+    },
+    {
+      "text": "Nawng Hkit Township (Northern Shan State)"
+    },
+    {
+      "text": "Nawnghkio Township (Northern Shan State)"
+    },
+    {
+      "text": "Pangsang Township (Northern Shan State)"
+    },
+    {
+      "text": "Pangsang (Panghkam) Township (Northern Shan State)"
+    },
+    {
+      "text": "Pangwaun Township (Northern Shan State)"
+    },
+    {
+      "text": "Panwai Township (Northern Shan State)"
+    },
+    {
+      "text": "Tangyan Township (Northern Shan State)"
+    },
+    {
+      "text": "Hopong Township (Southern Shan State)"
+    },
+    {
+      "text": "Hsihseng Township (Southern Shan State)"
+    },
+    {
+      "text": "Kalaw Township (Southern Shan State)"
+    },
+    {
+      "text": "Kunhing Township (Southern Shan State)"
+    },
+    {
+      "text": "Kyethi Township (Southern Shan State)"
+    },
+    {
+      "text": "Laihka Township (Southern Shan State)"
+    },
+    {
+      "text": "Langkho Township (Southern Shan State)"
+    },
+    {
+      "text": "Lawksawk Township (Southern Shan State)"
+    },
+    {
+      "text": "Loilem Township (Southern Shan State)"
+    },
+    {
+      "text": "Loilen Township (Southern Shan State)"
+    },
+    {
+      "text": "Mawkmai Township (Southern Shan State)"
+    },
+    {
+      "text": "Monghsu Township (Southern Shan State)"
+    },
+    {
+      "text": "Mongnai Township (Southern Shan State)"
+    },
+    {
+      "text": "Mongpan Township (Southern Shan State)"
+    },
+    {
+      "text": "Nansang Township (Southern Shan State)"
+    },
+    {
+      "text": "Nyaungshwe Township (Southern Shan State)"
+    },
+    {
+      "text": "Pekon Township (Southern Shan State)"
+    },
+    {
+      "text": "Pindaya Township (Southern Shan State)"
+    },
+    {
+      "text": "Pinlaung Township (Southern Shan State)"
+    },
+    {
+      "text": "Taunggyi Township (Southern Shan State)"
+    },
+    {
+      "text": "Ywangan Township (Southern Shan State)"
+    },
+    {
+      "text": "Don Hee Town (Nanyun Township, Sagaing Region)",
+      "trigger": "donhee/"
+    },
+    {
+      "text": "Htan Par Kway Town (Lahe Township, Sagaing Region)",
+      "trigger": "htanparkway/"
+    },
+    {
+      "text": "Khampat Town (Tamu Township, Sagaing Region)"
+    },
+    {
+      "text": "Kyauk Myaung Town (Shwebo Township, Sagaing Region)",
+      "trigger": "kyaukmyaung-shwebo/"
+    },
+    {
+      "text": "Maw Lu Town (Indaw Township, Sagaing Region)",
+      "trigger": "mawlu/"
+    },
+    {
+      "text": "Mo Paing Lut Town (Lay Shi Township, Sagaing Region)",
+      "trigger": "mopainglut/"
+    },
+    {
+      "text": "Mo Waing Lut Town (Homalin Township, Sagaing Region)",
+      "trigger": "mowainglut/"
+    },
+    {
+      "text": "Myothit Town (Tamu Township, Sagaing Region)",
+      "trigger": "myothit-tamu/"
+    },
+    {
+      "text": "Pansaung Town (Nanyun Township, Sagaing Region)"
+    },
+    {
+      "text": "Saing Pyin Town (Tabayin Township, Sagaing Region)",
+      "trigger": "saingpyin/"
+    },
+    {
+      "text": "Sar Taung Town (Sagaing Township, Sagaing Region)",
+      "trigger": "sartaung/"
+    },
+    {
+      "text": "Shwe Pyi Aye Town (Homalin Township, Sagaing Region)",
+      "trigger": "shwepyiaye/"
+    },
+    {
+      "text": "Sum Ma Rar Town (Lay Shi Township, Sagaing Region)",
+      "trigger": "summarar/"
+    },
+    {
+      "text": "Zee Kone Town (Kanbalu Township, Sagaing Region)",
+      "trigger": "zeekone/"
+    },
+    {
+      "text": "Kamma Town (Pakokku Township, Magway Region)",
+      "trigger": "kamma-pakokku/"
+    },
+    {
+      "text": "Kyaukhtu Town (Saw Township, Magway Region)"
+    },
+    {
+      "text": "Kyaw Town (Gangaw Township, Magway Region)"
+    },
+    {
+      "text": "Myit Chay Town (Pakokku Township, Magway Region)",
+      "trigger": "myitchay/"
+    },
+    {
+      "text": "Sa Lay Town (Chauk Township, Magway Region)",
+      "trigger": "salay/"
+    },
+    {
+      "text": "Saku Town (Minbu Township, Magway Region)"
+    },
+    {
+      "text": "Sinphyukyun Town (Salin Township, Magway Region)"
+    },
+    {
+      "text": "Kanhtauntkyi Town (Myebon Township, Rakhine State)"
+    },
+    {
+      "text": "Kha Maung Seik Town (Maungdaw Township, Rakhine State)",
+      "trigger": "khamaungseik/"
+    },
+    {
+      "text": "Kyeintali Town (Gwa Township, Rakhine State)"
+    },
+    {
+      "text": "Lay Taung Town (Ramree Township, Rakhine State)",
+      "trigger": "laytaung/"
+    },
+    {
+      "text": "Ma-Ei Town (Toungup Township, Rakhine State)"
+    },
+    {
+      "text": "Myin Hlut Town (Maungdaw Township, Rakhine State)",
+      "trigger": "myinhlut/"
+    },
+    {
+      "text": "Ngapali Town (Thandwe Township, Rakhine State)"
+    },
+    {
+      "text": "Sa Ne Town (Kyaukpyu Township, Rakhine State)",
+      "trigger": "sane/"
+    },
+    {
+      "text": "Tan Hlwe Ywar Ma Town (Toungup Township, Rakhine State)",
+      "trigger": "tanhlweywarma/"
+    },
+    {
+      "text": "Tat Taung Town (Ann Township, Rakhine State)",
+      "trigger": "tattaung/"
+    },
+    {
+      "text": "Taungpyoletwea Town (Maungdaw Township, Rakhine State)"
+    },
+    {
+      "text": "Cikha Town (Tonzang Township, Chin State)"
+    },
+    {
+      "text": "Hnaring Town (Thantlang Township, Chin State)"
+    },
+    {
+      "text": "Khaikam Town (Tedim Township, Chin State)"
+    },
+    {
+      "text": "Kyin Dway Town (Kanpetlet Township, Chin State)",
+      "trigger": "kyindway/"
+    },
+    {
+      "text": "Lalengpi Town (Matupi Township, Chin State)"
+    },
+    {
+      "text": "M'kuiimnu Town (Mindat Township, Chin State)",
+      "trigger": "mkuiimnu/"
+    },
+    {
+      "text": "Rezua Town (Matupi Township, Chin State)"
+    },
+    {
+      "text": "Rihkhawdar Town (Falam Township, Chin State)"
+    },
+    {
+      "text": "Samee Town (Paletwa Township, Chin State)"
+    },
+    {
+      "text": "Surkhua Town (Hakha Township, Chin State)"
+    },
+    {
+      "text": "Webula Town (Falam Township, Chin State)"
+    },
+    {
+      "text": "Dawthponeyan Town (Momauk Township, Kachin State)"
+    },
+    {
+      "text": "Hopin Town (Mohnyin Township, Kachin State)"
+    },
+    {
+      "text": "Inn Taw Gyi Town (Mohnyin Township, Kachin State)",
+      "trigger": "inntawgyi/"
+    },
+    {
+      "text": "Kamaing Town (Hpakant Township, Kachin State)"
+    },
+    {
+      "text": "Kan Paik Ti Town (Waingmaw Township, Kachin State)",
+      "trigger": "kanpaikti/"
+    },
+    {
+      "text": "Lwegel Town (Momauk Township, Kachin State)"
+    },
+    {
+      "text": "Myo Hla Town (Shwegu Township, Kachin State)",
+      "trigger": "myohla/"
+    },
+    {
+      "text": "Nam Mar Town (Mohnyin Township, Kachin State)",
+      "trigger": "nammar/"
+    },
+    {
+      "text": "Nam Mun Town (Mohnyin Township, Kachin State)",
+      "trigger": "nammun/"
+    },
+    {
+      "text": "Nammatee Town (Mogaung Township, Kachin State)"
+    },
+    {
+      "text": "Pang War Town (Chipwi Township, Kachin State)",
+      "trigger": "pangwar/"
+    },
+    {
+      "text": "Pannandin Town (Nawngmun Township, Kachin State)"
+    },
+    {
+      "text": "Sadung Town (Waingmaw Township, Kachin State)"
+    },
+    {
+      "text": "Shin Bway Yang Town (Tanai Township, Kachin State)",
+      "trigger": "shinbwayyang/"
+    },
+    {
+      "text": "Sinbo Town (Myitkyina Township, Kachin State)"
+    },
+    {
+      "text": "Ahmar Town (Pyapon Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Ahtaung Town (Kyonpyaw Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Ahthoke Town (Yegyi Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Batye Town (Kyangin Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Chaung Thar Town (Pathein Township, Ayeyarwady Region)",
+      "trigger": "chaungthar/"
+    },
+    {
+      "text": "Du Yar Town (Hinthada Township, Ayeyarwady Region)",
+      "trigger": "duyar/"
+    },
+    {
+      "text": "Hainggyikyun Town (Ngapudaw Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Htoogyi Town (Ingapu Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "In Pin Town (Myanaung Township, Ayeyarwady Region)",
+      "trigger": "inpin/"
+    },
+    {
+      "text": "Kanaung Town (Myanaung Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Kyonmangae Town (Wakema Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Labutta (3) Mile Town (Labutta Township, Ayeyarwady Region)",
+      "trigger": "labuttamile/"
+    },
+    {
+      "text": "Me Za Li Kone Town (Ingapu Township, Ayeyarwady Region)",
+      "trigger": "mezalikone/"
+    },
+    {
+      "text": "Ngathaingchaung Town (Yegyi Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Ngayokekaung Town (Ngapudaw Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Ngwesaung Town (Pathein Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Pyinsalu Town (Labutta Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Shwethaungyan Town (Pathein Township, Ayeyarwady Region)"
+    },
+    {
+      "text": "Ta Loke Htaw Town (Hinthada Township, Ayeyarwady Region)",
+      "trigger": "talokehtaw/"
+    },
+    {
+      "text": "Hpa Do Town (Kyauktaga Township, Bago Region)",
+      "trigger": "hpado/"
+    },
+    {
+      "text": "Hpayargyi Town (Bago Township, Bago Region)"
+    },
+    {
+      "text": "Hswar Town (Yedashe Township, Bago Region)"
+    },
+    {
+      "text": "Inn Ma Town (Thegon Township, Bago Region)",
+      "trigger": "innma/"
+    },
+    {
+      "text": "Inntakaw Town (Bago Township, Bago Region)"
+    },
+    {
+      "text": "Kanyutkwin Town (Phyu Township, Bago Region)"
+    },
+    {
+      "text": "Kaytumati Town (Taungoo Township, Bago Region)"
+    },
+    {
+      "text": "Kywe Pwe Town (Oktwin Township, Bago Region)",
+      "trigger": "kywepwe/"
+    },
+    {
+      "text": "Madauk Town (Nyaunglebin Township, Bago Region)",
+      "trigger": "madauk-nyaunglebin/"
+    },
+    {
+      "text": "Myo Hla Town (Yedashe Township, Bago Region)",
+      "trigger": "myohla-yedashe/"
+    },
+    {
+      "text": "Oakshitpin Town (Padaung Township, Bago Region)"
+    },
+    {
+      "text": "Oe Thei Kone Town (Okpho Township, Bago Region)",
+      "trigger": "oetheikone/"
+    },
+    {
+      "text": "Paungdale Town (Pyay Township, Bago Region)"
+    },
+    {
+      "text": "Peinzalok Town (Nyaunglebin Township, Bago Region)"
+    },
+    {
+      "text": "Penwegon Town (Kyauktaga Township, Bago Region)"
+    },
+    {
+      "text": "Puteekone Town (Thegon Township, Bago Region)"
+    },
+    {
+      "text": "Pyuntasa Town (Nyaunglebin Township, Bago Region)"
+    },
+    {
+      "text": "Sin Mee Swea Town (Thegon Township, Bago Region)",
+      "trigger": "sinmeeswea/"
+    },
+    {
+      "text": "Sit Kwin Town (Minhla Township, Bago Region)",
+      "trigger": "sitkwin/"
+    },
+    {
+      "text": "Tar Pun Town (Nattalin Township, Bago Region)",
+      "trigger": "tarpun/"
+    },
+    {
+      "text": "Thetkala Town (Kawa Township, Bago Region)"
+    },
+    {
+      "text": "Thonse Town (Thayarwady Township, Bago Region)"
+    },
+    {
+      "text": "Yae Ni Town (Yedashe Township, Bago Region)",
+      "trigger": "yaeni/"
+    },
+    {
+      "text": "Zayyawadi Town (Phyu Township, Bago Region)"
+    },
+    {
+      "text": "Kaleinaung Town (Yebyu Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Karathuri Town (Bokpyin Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Khamaukgyi Town (Kawthoung Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Maw Taung Town (Tanintharyi Township, Tanintharyi Region)",
+      "trigger": "mawtaung/"
+    },
+    {
+      "text": "Myitta Town (Dawei Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Pala Town (Palaw Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Palauk Town (Palaw Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Pyigyimandaing Town (Bokpyin Township, Tanintharyi Region)"
+    },
+    {
+      "text": "Baw Ga Li Town (Thandaunggyi Township, Kayin State)",
+      "trigger": "bawgali/"
+    },
+    {
+      "text": "Hpayarthonesu Town (Kyainseikgyi Township, Kayin State)"
+    },
+    {
+      "text": "Kamarmaung Town (Hpapun Township, Kayin State)"
+    },
+    {
+      "text": "Kyaikdon Town (Kyainseikgyi Township, Kayin State)"
+    },
+    {
+      "text": "Kyondoe Town (Kawkareik Township, Kayin State)"
+    },
+    {
+      "text": "Leik Tho Town (Thandaunggyi Township, Kayin State)",
+      "trigger": "leiktho/"
+    },
+    {
+      "text": "Paingkyon Town (Hlaingbwe Township, Kayin State)"
+    },
+    {
+      "text": "Shan Ywar Thit Town (Hlaingbwe Township, Kayin State)",
+      "trigger": "shanywarthit/"
+    },
+    {
+      "text": "Su Ka Li Town (Myawaddy Township, Kayin State)",
+      "trigger": "sukali/"
+    },
+    {
+      "text": "Thandaung Town (Thandaunggyi Township, Kayin State)"
+    },
+    {
+      "text": "Waw Lay Myaing (Waw Lay) Town (Myawaddy Township, Kayin State)",
+      "trigger": "wawlaymyaing/"
+    },
+    {
+      "text": "Kamarwet Town (Mudon Township, Mon State)"
+    },
+    {
+      "text": "Khawzar Town (Ye Township, Mon State)"
+    },
+    {
+      "text": "Kyaikkhami Town (Thanbyuzayat Township, Mon State)"
+    },
+    {
+      "text": "Lamaing Town (Ye Township, Mon State)"
+    },
+    {
+      "text": "Thein Za Yat Town (Kyaikto Township, Mon State)",
+      "trigger": "theinzayat/"
+    },
+    {
+      "text": "Thuwunnawady Town (Thaton Township, Mon State)"
+    },
+    {
+      "text": "Zinkyaik Town (Paung Township, Mon State)"
+    },
+    {
+      "text": "Law Pi Ta Town (Loikaw Township, Kayah State)",
+      "trigger": "lawpita/"
+    },
+    {
+      "text": "Loilen Lay Town (Loikaw Township, Kayah State)",
+      "trigger": "loilenlay/"
+    },
+    {
+      "text": "Nan Mei Khon Town (Demoso Township, Kayah State)",
+      "trigger": "nanmeikhon/"
+    },
+    {
+      "text": "Ywarthit Town (Bawlakhe Township, Kayah State)"
+    },
+    {
+      "text": "Hmone Hta Town (Mongton Township, Eastern Shan State)",
+      "trigger": "hmonehta/"
+    },
+    {
+      "text": "Kenglat Town (Tachileik Township, Eastern Shan State)"
+    },
+    {
+      "text": "Mongkhoke Town (Monghsat Township, Eastern Shan State)"
+    },
+    {
+      "text": "Mongpauk Town (Mongyang Township, Eastern Shan State)"
+    },
+    {
+      "text": "Mongyu Town (Mongyawng Township, Eastern Shan State)"
+    },
+    {
+      "text": "Ponparkyin Town (Mongton Township, Eastern Shan State)"
+    },
+    {
+      "text": "Tarlay Town (Tachileik Township, Eastern Shan State)"
+    },
+    {
+      "text": "Tontar Town (Mongping Township, Eastern Shan State)"
+    },
+    {
+      "text": "Chinshwehaw Town (Laukkaing Township, Northern Shan State)"
+    },
+    {
+      "text": "Man Kan Town (Pangsang (Panghkam) Township, Northern Shan State)",
+      "trigger": "mankan/"
+    },
+    {
+      "text": "Manhlyoe (Manhero) Town (Muse Township, Northern Shan State)"
+    },
+    {
+      "text": "Maw Hteik Town (Konkyan Township, Northern Shan State)",
+      "trigger": "mawhteik/"
+    },
+    {
+      "text": "Monekoe Town (Muse Township, Northern Shan State)"
+    },
+    {
+      "text": "Mong Maw Town (Kawng Min Hsang Township, Northern Shan State)",
+      "trigger": "mongmaw-kawngminhsang/"
+    },
+    {
+      "text": "Monglon Town (Kyaukme Township, Northern Shan State)"
+    },
+    {
+      "text": "Mongngawt Town (Kyaukme Township, Northern Shan State)"
+    },
+    {
+      "text": "Namtit Town (Hopang Township, Northern Shan State)"
+    },
+    {
+      "text": "Pan Lon Town (Hopang Township, Northern Shan State)",
+      "trigger": "panlon/"
+    },
+    {
+      "text": "Pang Hseng (Kyu Koke) Town (Muse Township, Northern Shan State)",
+      "trigger": "panghseng/"
+    },
+    {
+      "text": "Tarmoenye Town (Kutkai Township, Northern Shan State)"
+    },
+    {
+      "text": "Wein Kawn Town (Nawng Hkit Township, Northern Shan State)",
+      "trigger": "weinkawn/"
+    },
+    {
+      "text": "Aungpan Town (Kalaw Township, Southern Shan State)"
+    },
+    {
+      "text": "Ayetharyar Town (Taunggyi Township, Southern Shan State)"
+    },
+    {
+      "text": "He Hoe Town (Kalaw Township, Southern Shan State)",
+      "trigger": "hehoe/"
+    },
+    {
+      "text": "Homein Town (Langkho Township, Southern Shan State)"
+    },
+    {
+      "text": "Intaw Town (Lawksawk Township, Southern Shan State)"
+    },
+    {
+      "text": "Kar Li Town (Kunhing Township, Southern Shan State)",
+      "trigger": "karli/"
+    },
+    {
+      "text": "Kengtawng Town (Mongnai Township, Southern Shan State)"
+    },
+    {
+      "text": "Kho Lam Town (Nansang Township, Southern Shan State)",
+      "trigger": "kholam/"
+    },
+    {
+      "text": "Kyauktalonegyi Town (Taunggyi Township, Southern Shan State)"
+    },
+    {
+      "text": "Mongnawng Town (Kyethi Township, Southern Shan State)"
+    },
+    {
+      "text": "Mongsan (Hmonesan) Town (Monghsu Township, Southern Shan State)"
+    },
+    {
+      "text": "Nang Pang Town (Nyaungshwe Township, Southern Shan State)",
+      "trigger": "nangpang/"
+    },
+    {
+      "text": "Naungtayar Town (Pinlaung Township, Southern Shan State)"
+    },
+    {
+      "text": "Pawng Lawng Town (Pinlaung Township, Southern Shan State)",
+      "trigger": "pawnglawng/"
+    },
+    {
+      "text": "Pinlon Town (Loilen Township, Southern Shan State)"
+    },
+    {
+      "text": "Shwenyaung Town (Taunggyi Township, Southern Shan State)"
+    }
+  ]
+}

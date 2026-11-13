@@ -1,0 +1,12 @@
+{
+  "name": "writing-app",
+  "version": "2.0.0",
+  "private": true,
+  "description": "A quiet, offline-friendly writing app with auto-text for Myanmar place names.",
+  "scripts": {
+    "sync": "node scripts/sync-seeds.mjs",
+    "verify": "node scripts/verify-data.mjs",
+    "serve": "python3 -m http.server 4173"
+  },
+  "license": "MIT"
+}
