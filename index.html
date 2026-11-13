@@ -48,32 +48,6 @@
 
   <main>
 
-    <section class="panel panel-stats" aria-label="Document overview">
-      <ul class="stats">
-        <li class="stat">
-          <span class="stat-value" id="stat-words">0</span>
-          <span class="stat-label">Words</span>
-        </li>
-        <li class="stat">
-          <span class="stat-value" id="stat-chars">0</span>
-          <span class="stat-label">Characters</span>
-        </li>
-        <li class="stat">
-          <span class="stat-value" id="stat-saved">0</span>
-          <span class="stat-label">Saved entries</span>
-        </li>
-      </ul>
-
-      <button type="button" class="feature-btn" id="download-btn">
-        <span class="feature-chip" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M7 17 17 7M9.2 7H17v7.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span class="btn-label">Download .txt</span>
-      </button>
-    </section>
-
     <section class="panel panel-editor" aria-label="Draft">
       <label class="sr-only" for="editor">Draft</label>
       <textarea id="editor" placeholder="Start writing…" spellcheck="true"></textarea>
@@ -82,6 +56,7 @@
       <div class="editor-foot">
         <p class="status" id="storage-status">Saved in this browser only.</p>
         <div class="foot-actions">
+          <span class="word-count" id="wordcount">0 words · 0 characters</span>
           <button type="button" class="ghost" id="copy-btn"><span class="btn-label">Copy</span></button>
           <button type="button" class="ghost" id="clear-btn"><span class="btn-label">Clear</span></button>
         </div>
@@ -96,6 +71,7 @@
     </div>
 
     <div class="io-row">
+      <button type="button" class="chip-btn" id="download-btn"><span class="btn-label">Download .txt</span></button>
       <button type="button" class="chip-btn" id="backup-btn"><span class="btn-label">Back up</span></button>
       <button type="button" class="chip-btn" id="restore-btn"><span class="btn-label">Restore</span></button>
       <input type="file" id="restore-file" accept="application/json,.json" hidden>
