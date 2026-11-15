@@ -10,7 +10,8 @@
     phrases: "writingApp.phrases.v1",
     history: "writingApp.history.v1",
     seedVersion: "writingApp.seedVersion.v1",
-    removedSeeds: "writingApp.removedSeeds.v1"
+    removedSeeds: "writingApp.removedSeeds.v1",
+    pinned: "writingApp.pinned.v1"
   };
 
   var HISTORY_LIMIT = 30;
@@ -59,6 +60,7 @@
   var saveBtn = document.getElementById("save-btn");
   var copyBtn = document.getElementById("copy-btn");
   var clearBtn = document.getElementById("clear-btn");
+  var focusBtn = document.getElementById("focus-btn");
   var downloadBtn = document.getElementById("download-btn");
   var backupBtn = document.getElementById("backup-btn");
   var restoreBtn = document.getElementById("restore-btn");
@@ -95,6 +97,42 @@
     var d = new Date();
     return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
       "-" + pad(d.getHours()) + pad(d.getMinutes());
+  }
+
+  // date/ and time/ resolve against Yangon time, formatted the way the
+  // daily write-ups use them: "15 November 2026" and "17:05 Hrs".
+  function myanmarToday() {
+    var parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Yangon", day: "numeric", month: "long", year: "numeric"
+    }).formatToParts(new Date());
+    var d = "", m = "", y = "";
+    parts.forEach(function (part) {
+      if (part.type === "day") d = part.value;
+      else if (part.type === "month") m = part.value;
+      else if (part.type === "year") y = part.value;
+    });
+    return d + " " + m + " " + y;
+  }
+
+  function myanmarTime() {
+    var parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Yangon", hour: "2-digit", minute: "2-digit", hour12: false
+    }).formatToParts(new Date());
+    var h = "", mi = "";
+    parts.forEach(function (part) {
+      if (part.type === "hour") h = part.value;
+      else if (part.type === "minute") mi = part.value;
+    });
+    return h + ":" + mi + " Hrs";
+  }
+
+  // Virtual shortcuts: not stored as phrases, resolved fresh on every
+  // keystroke so the inserted text is always the current date/time.
+  function dynamicTriggers() {
+    return [
+      { trigger: "date/", text: myanmarToday() },
+      { trigger: "time/", text: myanmarTime() }
+    ];
   }
 
   function fmtDate(iso) {
@@ -307,8 +345,49 @@
   var phraseIndex = [];
   var triggerIndex = [];
 
+  var pinned = read(LS.pinned, []);
+  if (!Array.isArray(pinned)) pinned = [];
+  pinned = uniqueByLower(pinned.filter(function (s) {
+    return typeof s === "string" && s.trim();
+  }));
+  var pinnedSet = byLower(pinned);
+
+  function savePinned() {
+    pinnedSet = byLower(pinned);
+    persist(LS.pinned, pinned);
+  }
+
+  function isPinned(text) {
+    return !!pinnedSet[text.toLowerCase()];
+  }
+
+  // Pinned phrases come first, both in the Auto text list and in
+  // suggestion ranking; relative order is otherwise unchanged.
+  function orderedPhrases() {
+    var first = [];
+    var rest = [];
+    phrases.forEach(function (text) {
+      if (isPinned(text)) first.push(text);
+      else rest.push(text);
+    });
+    return first.concat(rest);
+  }
+
+  function togglePin(text) {
+    var key = text.toLowerCase();
+    if (pinnedSet[key]) {
+      pinned = pinned.filter(function (p) { return p.toLowerCase() !== key; });
+    } else {
+      pinned.push(text);
+    }
+    savePinned();
+    rebuildIndex();
+    renderPhrases();
+    renderSuggestions();
+  }
+
   function rebuildIndex() {
-    phraseIndex = phrases.map(function (text) {
+    phraseIndex = orderedPhrases().map(function (text) {
       return { text: text, lower: text.toLowerCase() };
     });
 
@@ -417,8 +496,9 @@
     var triggerMatches = [];
     var phraseMatches = [];
 
-    for (var i = 0; i < triggerIndex.length; i += 1) {
-      var item = triggerIndex[i];
+    var allTriggers = dynamicTriggers().concat(triggerIndex);
+    for (var i = 0; i < allTriggers.length; i += 1) {
+      var item = allTriggers[i];
       var length = triggerPrefixLength(beforeLower, item.trigger);
       if (length >= 2 && !seen[item.text]) {
         seen[item.text] = true;
@@ -537,6 +617,12 @@
     phrases.splice(index, 1);
     persist(LS.phrases, phrases);
 
+    if (isPinned(text)) {
+      var pinKey = text.toLowerCase();
+      pinned = pinned.filter(function (p) { return p.toLowerCase() !== pinKey; });
+      savePinned();
+    }
+
     var seed = seeds.filter(function (s) { return s.text === text; })[0];
     if (seed) {
       var key = text.toLowerCase();
@@ -553,13 +639,23 @@
   }
 
   function phraseItem(text) {
+    var pinnedNow = isPinned(text);
     var li = document.createElement("li");
-    li.className = "phrase-item";
+    li.className = "phrase-item" + (pinnedNow ? " pinned" : "");
 
     var span = document.createElement("span");
     span.className = "phrase-text";
     span.textContent = text;
     span.title = text;
+
+    var pin = document.createElement("button");
+    pin.type = "button";
+    pin.className = "icon-btn pin-btn" + (pinnedNow ? " pinned" : "");
+    pin.textContent = pinnedNow ? "\u2605" : "\u2606";
+    pin.title = pinnedNow ? "Unpin" : "Pin to top";
+    pin.setAttribute("aria-label", (pinnedNow ? "Unpin auto text: " : "Pin auto text to top: ") + text);
+    pin.setAttribute("aria-pressed", pinnedNow ? "true" : "false");
+    pin.addEventListener("click", function () { togglePin(text); });
 
     var del = document.createElement("button");
     del.type = "button";
@@ -570,6 +666,7 @@
     del.addEventListener("click", function () { deletePhrase(text); });
 
     li.appendChild(span);
+    li.appendChild(pin);
     li.appendChild(del);
     return li;
   }
@@ -583,9 +680,10 @@
 
   function renderPhrases() {
     var filter = phraseFilter.trim().toLowerCase();
+    var ordered = orderedPhrases();
     var matches = filter
-      ? phrases.filter(function (p) { return p.toLowerCase().indexOf(filter) !== -1; })
-      : phrases;
+      ? ordered.filter(function (p) { return p.toLowerCase().indexOf(filter) !== -1; })
+      : ordered;
 
     var visible = (filter || phraseShowAll) ? matches : matches.slice(0, PHRASE_PREVIEW);
 
@@ -861,6 +959,7 @@
       exportedAt: new Date().toISOString(),
       draft: editor.value,
       phrases: phrases.slice(),
+      pinned: pinned.slice(),
       history: history.slice()
     };
     download(
@@ -905,6 +1004,14 @@
         persist(LS.phrases, phrases);
         persist(LS.removedSeeds, removedSeeds);
         persist(LS.seedVersion, seedVersion);
+
+        if (Array.isArray(data.pinned)) {
+          var restored = byLower(phrases);
+          pinned = uniqueByLower(data.pinned.filter(function (p) {
+            return typeof p === "string" && restored[p.toLowerCase()];
+          }));
+          savePinned();
+        }
 
         rebuildIndex();
         renderPhrases();
@@ -1008,6 +1115,12 @@
   });
 
   clearBtn.addEventListener("click", clearEditor);
+  focusBtn.addEventListener("click", function () {
+    var on = document.body.classList.toggle("focus-mode");
+    setLabel(focusBtn, on ? "Exit focus" : "Focus");
+    focusBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    editor.focus();
+  });
   copyBtn.addEventListener("click", function () { copyText(editor.value, copyBtn); });
   saveBtn.addEventListener("click", saveEntry);
 

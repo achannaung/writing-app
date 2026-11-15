@@ -560,6 +560,20 @@ h2 {
 }
 .icon-btn:hover { background: var(--surface-3); color: var(--ink); }
 
+.pin-btn { font-size: 16px; opacity: 0.5; }
+.pin-btn:hover { opacity: 1; }
+.pin-btn.pinned { opacity: 1; color: var(--accent); }
+.phrase-item.pinned { border-color: var(--accent); }
+
+/* Focus mode: everything except the editor panel is hidden. */
+body.focus-mode .topbar,
+body.focus-mode .alert,
+body.focus-mode .io-row,
+body.focus-mode .block,
+body.focus-mode footer { display: none; }
+body.focus-mode .shell { padding-top: 24px; }
+body.focus-mode #editor { min-height: 68vh; }
+
 .empty {
   padding: 18px 4px;
   font-size: 13.5px;
