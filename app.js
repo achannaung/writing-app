@@ -61,6 +61,7 @@
   var copyBtn = document.getElementById("copy-btn");
   var clearBtn = document.getElementById("clear-btn");
   var focusBtn = document.getElementById("focus-btn");
+  var installBtn = document.getElementById("install-btn");
   var downloadBtn = document.getElementById("download-btn");
   var backupBtn = document.getElementById("backup-btn");
   var restoreBtn = document.getElementById("restore-btn");
@@ -1181,6 +1182,43 @@
     applyTheme(next);
     persist(THEME_KEY, next);
   });
+
+  /* ------------------------------------------------------------------ *
+   * Installable app (PWA): offline support + install button
+   * ------------------------------------------------------------------ */
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("sw.js").catch(function () { /* offline support is optional */ });
+    });
+  }
+
+  var deferredInstall = null;
+  var runningStandalone =
+    (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+    window.navigator.standalone === true;
+
+  window.addEventListener("beforeinstallprompt", function (e) {
+    e.preventDefault();
+    deferredInstall = e;
+    if (installBtn && !runningStandalone) installBtn.hidden = false;
+  });
+
+  window.addEventListener("appinstalled", function () {
+    deferredInstall = null;
+    if (installBtn) installBtn.hidden = true;
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener("click", function () {
+      if (!deferredInstall) return;
+      var promptEvent = deferredInstall;
+      deferredInstall = null;
+      installBtn.hidden = true;
+      promptEvent.prompt();
+      if (promptEvent.userChoice) promptEvent.userChoice.catch(function () { /* dismissed */ });
+    });
+  }
 
   /* ------------------------------------------------------------------ *
    * Init

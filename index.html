@@ -11,6 +11,8 @@
 <meta property="og:description" content="A quiet place to write, with auto-text shortcuts for Myanmar place names.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,6 +33,7 @@
     </div>
 
     <div class="topbar-actions">
+      <button type="button" class="ghost" id="install-btn" hidden><span class="btn-label">📲 Install app</span></button>
       <button type="button" class="cta" id="save-btn"><span class="btn-label">Save</span></button>
       <button type="button" class="square" id="theme-toggle" aria-label="Switch to light theme">
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
