@@ -383,6 +383,7 @@
 
   var composing = false;
   var currentMatches = [];
+  var lastChipInsert = { match: null, time: 0 };
   var SUGGEST_TAIL = 400;
 
   function lastToken(text) {
@@ -452,7 +453,6 @@
   }
 
   function renderSuggestions() {
-    if (composing) return;
     if (editor.selectionStart !== editor.selectionEnd) { hideSuggestions(); return; }
 
     var position = editor.selectionStart;
@@ -461,6 +461,15 @@
 
     var matches = findMatches(before);
     if (!matches.length) { hideSuggestions(); return; }
+
+    if (!suggestBar.hidden && matches.length === currentMatches.length &&
+        matches.every(function (m, i) {
+          return m.text === currentMatches[i].text &&
+            m.trigger === currentMatches[i].trigger &&
+            m.replaceLength === currentMatches[i].replaceLength;
+        })) {
+      return;
+    }
 
     currentMatches = matches;
     suggestBar.replaceChildren();
@@ -478,7 +487,15 @@
       chip.title = "Insert: " + match.text;
       chip.setAttribute("aria-label", "Insert " + match.text);
       chip._match = match;
-      chip.addEventListener("click", function () { insertPhrase(match); });
+      chip.addEventListener("pointerdown", function (e) {
+        e.preventDefault();
+        lastChipInsert = { match: match, time: Date.now() };
+        insertPhrase(match);
+      });
+      chip.addEventListener("click", function () {
+        if (lastChipInsert.match === match && Date.now() - lastChipInsert.time < 700) return;
+        insertPhrase(match);
+      });
       suggestBar.appendChild(chip);
     });
 
@@ -914,12 +931,11 @@
   function afterEdit() {
     updateCount();
     scheduleDraftSave();
-    if (!composing) renderSuggestions();
+    renderSuggestions();
   }
 
   editor.addEventListener("input", afterEdit);
   editor.addEventListener("keyup", function (e) {
-    if (composing) return;
     if (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "ArrowUp" ||
         e.key === "ArrowDown" || e.key === "Home" || e.key === "End") {
       renderSuggestions();
@@ -928,8 +944,10 @@
   editor.addEventListener("click", renderSuggestions);
 
   editor.addEventListener("compositionstart", function () {
+    // Only tracked for the Tab / Alt+number guards below. Suggestions are
+    // rendered during composition on purpose: touch keyboards hold the
+    // current word in a single composition session until it is committed.
     composing = true;
-    hideSuggestions();
   });
   editor.addEventListener("compositionend", function () {
     composing = false;
